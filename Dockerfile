@@ -39,6 +39,10 @@ RUN sed -i -r 's/<\/tomcat-users>//' ${CATALINA_HOME}/conf/tomcat-users.xml && \
     echo '</tomcat-users>' >> ${CATALINA_HOME}/conf/tomcat-users.xml && \
     echo "=> Done!"
 
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
 
 ENTRYPOINT ["${CATALINA_HOME}/bin/catalina.sh", "run"]
 EXPOSE 8080
